@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:reader/db/database_helper.dart';
 import 'package:reader/models/book.dart';
 import 'package:reader/utils/book_details_arguments.dart';
 
@@ -65,17 +66,17 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
                       child: !isFromSavedScreen
                           ? ElevatedButton(
                               onPressed: () async {
-                                // // save a book to the datase
-                                // try {
-                                //   int savedInt = await DatabaseHelper.instance
-                                //       .insert(book);
-                                //   SnackBar snackBar = const SnackBar(
-                                //       content: Text("Book Saved"));
-                                //   ScaffoldMessenger.of(context)
-                                //       .showSnackBar(snackBar);
-                                // } catch (e) {
-                                //   print("Error: $e");
-                                // }
+                                // save a book to the datase
+                                try {
+                                  int savedInt = await DatabaseHelper.instance
+                                      .insert(book);
+                                  SnackBar snackBar = const SnackBar(
+                                      content: Text("Book Saved"));
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(snackBar);
+                                } catch (e) {
+                                  print("Error: $e");
+                                }
                               },
                               child: const Text('Save'))
                           : ElevatedButton.icon(

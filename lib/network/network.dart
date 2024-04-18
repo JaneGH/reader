@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:reader/models/book.dart';
 import 'package:http/http.dart' as http;
+import 'package:reader/models/book.dart';
 
 class Network {
   //api endpoint
